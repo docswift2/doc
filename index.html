@@ -129,9 +129,18 @@
     <div class="header"><a href="index.html">DocSwift</a></div>
     <div class="bg"></div>
     <div class="txt">
-        Ask <span></span>
+        Prompt <span></span>
         <button type="submit">Start</button>
     </div>
     <div class="footer">Copyright © <a href="index.html">DocSwift</a></div>
+    <script>
+        console.log("DEVELOPED BY PAVAN REDDY");
+        function click(){
+            location.href = 'search.html';
+        }
+        document.addEventListener("DOMContentLoaded",function(){
+            document.querySelector('button').onclick = click;
+        })
+    </script>
 </body>
 </html>
