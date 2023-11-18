@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>DocSwift/Ask-Documents</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #2F3651;
+        }
+        .header{
+            background-color: #282e47;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+            font-family: "Audiowide", sans-serif;
+            color: #8EBBFF;
+            font-size: 30px;
+        }
+        .inner{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Audiowide", sans-serif;
+            color: #8EBBFF;
+            font-size: 24px;
+        }
+        .inner p{
+            margin-top: 200px;
+        }
+        #ease{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+            height: 22vh;
+            margin-top: 80px;
+        }
+        #ease-1{
+            width: 270px;
+            height: 50px;
+            border: 2px solid #282e47;
+            background-color: #2F3651;
+            color: #8EBBFF;
+            font-family: "Audiowide", sans-serif;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        #ease-2{
+            width: 270px;
+            height: 50px;
+            border: 2px solid #282e47;
+            background-color: #2F3651;
+            color: #8EBBFF;
+            font-family: "Audiowide", sans-serif;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        #send{
+            margin-top: -70px;
+            margin-left: 220px;
+            background-color: #2F3651;
+            rotate: -90deg;
+            border: none;
+            color: #8EBBFF;
+            cursor: pointer;
+        }
+        .txt p{
+            margin-top: 30px;
+            color: #8EBBFF;
+            font-family: "Audiowide", sans-serif;
+            text-align: center;
+        }
+        .prompt{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .prompt #in{
+            width: 220px;
+            height: 50px;
+            border: 2px solid #282e47;
+            background-color: #2F3651;
+            outline: none;
+            font-size: 20px;
+            border-radius: 20px;
+            padding-left: 40px;
+            caret-color: white;
+            color: white;
+            margin-left: -15px;
+            padding-right: 60px;
+        }
+        #request{
+            margin-left: -45px;
+            rotate: -90deg;
+            cursor: pointer;
+            border: 2px solid #2F3651;
+            background-color: #282e47;
+            color: #8EBBFF;
+            width: 35px;
+            height: 35px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">DocSwift</div>
+    <div class="inner">
+        <p>Ask Any Documents</p>
+    </div>
+    <div id="ease">
+        <button id="ease-1">Get Aadhar Card
+            <button id="send"><span class="material-symbols-outlined" >
+                send
+            </span>
+            </button>
+        </button>
+        <button id="ease-2">Get Pan Card
+            <button id="send"><span class="material-symbols-outlined" >
+                send
+            </span>
+            </button> 
+        </button>
+    </div>
+    <div class="prompt">
+        <input type="text" id="in" placeholder="Request any documents">
+            <button id="request" disabled>
+                <span class="material-symbols-outlined" >
+            send
+                </span>
+            </button>
+        
+    </div>
+    <div class="txt">
+        <p>Use correct spellings to recieve requested prompt.</p>
+    </div>
+    <script>
+        
+        function content(){
+            let input = document.getElementById('in').value;
+            /*let es = document.getElementById('ease');
+            es.style.display = 'none';*/
+            if(input === 'ew'){
+                location.href = 'https://shubhangsethi.github.io/GVP_zvx-awh_fzh4dch-Techie-Titans/';
+            }
+                if(input === 'msritpp'){
+                    location.href = 'https://msritpp.github.io/msrit.pp/';
+                }
+        }
+        document.addEventListener("DOMContentLoaded",function(){
+            document.querySelector('#request').onclick = content;
+        });
+        document.addEventListener("DOMContentLoaded",function(){
+            document.getElementById('request').disabled = true;
+            document.querySelector('#in').onkeyup = () => {
+                document.querySelector('#request').disabled = false;
+            }
+        })
+    </script>
+</body>
+</html>
