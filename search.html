@@ -183,7 +183,7 @@ function content(){
             if(tupni === 'wheel'){
                 let three = document.createElement('img');
                 let share = document.createElement("a");
-                share.href = 'google.com';
+                share.href = 'whatsapp://send?text=${encodeURIComponent(wheel3.jpg)}';
                 share.innerText = 'share';
                 share.id = 's-btn';
                 share.style.textDecoration = 'none';
@@ -213,7 +213,7 @@ function content(){
                 if(tupni === 'home'){
                 let three = document.createElement('img');
                 let share = document.createElement("a");
-                share.href = "whatsapp://send?text=home.gif";
+                share.href = "whatsapp://send?text=${encodeURIComponent(home.gif)}";
                 share.innerText = 'share';
                 share.id = 's-btn';
                 share.style.textDecoration = 'none';
