@@ -53,7 +53,7 @@
             font-family: "Audiowide", sans-serif;
             cursor: pointer;
             border-radius: 10px;
-            margin-left: 70px;
+            margin-left: 50px;
             margin-top:100px;
         }
         #ease-2{
@@ -65,7 +65,7 @@
             font-family: "Audiowide", sans-serif;
             cursor: pointer;
             border-radius: 10px;
-            margin-left: 70px;
+            margin-left: 50px;
         }
         .txt p{
             margin-top: 30px;
@@ -107,11 +107,11 @@
             align-items: center;
         }
         #hidden{
-            width: 400px;
+            width: 350px;
             height: 350px;
             overflow: scroll;
             scroll-behavior: smooth;
-            max-width: 400px;
+            max-width: 350px;
             margin: auto;
             
         }
@@ -121,7 +121,7 @@
         #send{
             position: relative;
             top: -36px;
-            margin-left: 270px;
+            margin-left: 250px;
             background-color: #2F3651;
             border: none;
             color: #8EBBFF;
@@ -149,7 +149,6 @@
                 </span>
             </button> 
         </button>
-
     </div>
     <div class="prompt">
         <input type="text" id="in" placeholder="Request any documents">
@@ -183,7 +182,9 @@ function content(){
             if(tupni === 'wheel'){
                 let three = document.createElement('img');
                 let share = document.createElement("a");
-                share.href = 'whatsapp://send?text=${encodeURIComponent(wheel3.jpg)}';
+                let logo = document.createElement('p');
+                let colon = document.createElement('p');
+                share.href = 'google.com';
                 share.innerText = 'share';
                 share.id = 's-btn';
                 share.style.textDecoration = 'none';
@@ -204,41 +205,83 @@ function content(){
                 three.style.display = 'flex';
                 three.style.justifyContent = 'center';
                 three.style.alignItems = 'center';
-                three.style.marginLeft = '100px';
+                three.style.marginLeft = '77px';
                 three.style.paddingTop = '40px';
                 three.style.paddingBottom = '40px';
+                logo.className = 'lg';
+                logo.innerText = 'DS';
+                logo.style.color = '#8EBBFF';
+                logo.style.backgroundColor = '#282e47';
+                logo.style.fontFamily = 'Audiowide, sans-serif';
+                logo.style.width = '50px';
+                logo.style.height = '50px';
+                logo.style.display = 'flex';
+                logo.style.justifyContent = 'center';
+                logo.style.alignItems = 'center';
+                logo.style.borderRadius = '50%';
+                logo.style.marginTop = '-292px';
+                colon.innerText = ':';
+                colon.style.color = '#8EBBFF';
+                colon.style.marginLeft = '59px';
+                colon.style.marginTop = '-38px';
+                colon.style.fontSize = '25px';
                 document.getElementById('hidden').appendChild(three);
                 document.getElementById('hidden').appendChild(share);
+                document.getElementById('hidden').appendChild(logo);
+                document.getElementById('hidden').appendChild(colon);
+                
             }
                 if(tupni === 'home'){
-                let three = document.createElement('img');
-                let share = document.createElement("a");
-                share.href = "whatsapp://send?text=${encodeURIComponent(home.gif)}";
-                share.innerText = 'share';
-                share.id = 's-btn';
-                share.style.textDecoration = 'none';
-                share.style.display = 'flex';
-                share.style.alignItems = 'center';
-                share.style.justifyContent = 'center';
-                share.style.backgroundColor = '#282e47';
-                share.style.width = '200px';
-                share.style.height = '50px';
-                share.style.color = '#8EBBFF';
-                share.style.maxWidth = '200px';
-                share.style.margin = 'auto';
-                share.style.fontFamily = 'Audiowide, sans-serif';
-                share.style.borderRadius = '10px';
-                three.src = 'home.gif';
-                three.style.width = '200px';
-                three.style.height = '200px';
-                three.style.display = 'flex';
-                three.style.justifyContent = 'center';
-                three.style.alignItems = 'center';
-                three.style.marginLeft = '100px';
-                three.style.paddingTop = '40px';
-                three.style.paddingBottom = '40px';
-                document.getElementById('hidden').appendChild(three);
-                document.getElementById('hidden').appendChild(share);
+                    let three = document.createElement('img');
+                    let share = document.createElement("a");
+                    let logo = document.createElement('p');
+                    let colon = document.createElement('p');
+                    share.href = "whatsapp://send?text=home.gif";
+                    share.innerText = 'share';
+                    share.id = 's-btn';
+                    share.style.textDecoration = 'none';
+                    share.style.display = 'flex';
+                    share.style.alignItems = 'center';
+                    share.style.justifyContent = 'center';
+                    share.style.backgroundColor = '#282e47';
+                    share.style.width = '200px';
+                    share.style.height = '50px';
+                    share.style.color = '#8EBBFF';
+                    share.style.maxWidth = '200px';
+                    share.style.margin = 'auto';
+                    share.style.fontFamily = 'Audiowide, sans-serif';
+                    share.style.borderRadius = '10px';
+                    three.src = 'home.gif';
+                    three.style.width = '200px';
+                    three.style.height = '200px';
+                    three.style.display = 'flex';
+                    three.style.justifyContent = 'center';
+                    three.style.alignItems = 'center';
+                    three.style.marginLeft = '77px';
+                    three.style.paddingTop = '40px';
+                    three.style.paddingBottom = '40px';
+                    three.style.marginTop = '260px';
+                    logo.className = 'lg';
+                    logo.innerText = 'DS';
+                    logo.style.color = '#8EBBFF';
+                    logo.style.backgroundColor = '#282e47';
+                    logo.style.fontFamily = 'Audiowide, sans-serif';
+                    logo.style.width = '50px';
+                    logo.style.height = '50px';
+                    logo.style.display = 'flex';
+                    logo.style.justifyContent = 'center';
+                    logo.style.alignItems = 'center';
+                    logo.style.borderRadius = '50%';
+                    logo.style.marginTop = '-292px';
+                    colon.innerText = ':';
+                    colon.style.color = '#8EBBFF';
+                    colon.style.marginLeft = '59px';
+                    colon.style.marginTop = '-38px';
+                    colon.style.fontSize = '25px';
+                    document.getElementById('hidden').appendChild(three);
+                    document.getElementById('hidden').appendChild(share);
+                    document.getElementById('hidden').appendChild(logo);
+                    document.getElementById('hidden').appendChild(colon);
                 }
 }
 document.addEventListener('DOMContentLoaded',function(){
@@ -258,15 +301,57 @@ function display(){
     let one = document.getElementById('ease-2');
     let two = document.getElementById('send');
     let three = document.createElement('img');
+    let share = document.createElement("a");
+    let logo = document.createElement('p');
+    let es = document.getElementById('ease-1');
+    let b = document.getElementById('send')
+    let colon = document.createElement('p');
     three.src = 'wheel3.jpg';
     three.style.width = '200px';
     three.style.height = '200px';
     three.style.display = 'flex';
     three.style.justifyContent = 'center';
     three.style.alignItems = 'center';
-    three.style.marginLeft = '100px';
+    three.style.marginLeft = '77px';
     three.style.paddingBottom = '40px';
+    share.innerText = 'share';
+    share.id = 's-btn';
+    share.href = "whatsapp://send?text=home.gif";
+    share.style.textDecoration = 'none';
+    share.style.display = 'flex';
+    share.style.alignItems = 'center';
+    share.style.justifyContent = 'center';
+    share.style.backgroundColor = '#282e47';
+    share.style.width = '200px';
+    share.style.height = '50px';
+    share.style.color = '#8EBBFF';
+    share.style.maxWidth = '200px';
+    share.style.margin = 'auto';
+    share.style.fontFamily = 'Audiowide, sans-serif';
+    share.style.borderRadius = '10px';
+    es.style.display = 'none';
+    b.style.display = 'none';
+    logo.className = 'lg';
+    logo.innerText = 'DS';
+    logo.style.color = '#8EBBFF';
+    logo.style.backgroundColor = '#282e47';
+    logo.style.fontFamily = 'Audiowide, sans-serif';
+    logo.style.width = '50px';
+    logo.style.height = '50px';
+    logo.style.display = 'flex';
+    logo.style.justifyContent = 'center';
+    logo.style.alignItems = 'center';
+    logo.style.borderRadius = '50%';
+    logo.style.marginTop = '-292px';
+    colon.innerText = ':';
+    colon.style.color = '#8EBBFF';
+    colon.style.marginLeft = '59px';
+    colon.style.marginTop = '-38px';
+    colon.style.fontSize = '25px';
     document.getElementById('hidden').appendChild(three);
+    document.getElementById('hidden').appendChild(share);
+    document.getElementById('hidden').appendChild(logo);
+    document.getElementById('hidden').appendChild(colon);
     one.style.display = 'none';
     two.style.display = 'none';
 }
