@@ -68,9 +68,12 @@
             margin-left: 50px;
         }
         .txt p{
-            margin-top: 30px;
             color: #8EBBFF;
             font-family: "Audiowide", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
             text-align: center;
         }
         .prompt{
@@ -80,7 +83,6 @@
             margin-top: 40px;
         }
          #in{
-            width: 220px;
             height: 50px;
             border: 2px solid #282e47;
             background-color: #2F3651;
@@ -92,6 +94,10 @@
             color: white;
             margin-left: -15px;
             padding-right: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
         }
         #request{
             margin-left: -45px;
@@ -105,15 +111,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            
         }
         #hidden{
-            width: 350px;
-            height: 350px;
             overflow: scroll;
             scroll-behavior: smooth;
-            max-width: 350px;
+            height: 300px;
+            width: 400px;
+            max-width: 300px;
             margin: auto;
-            
         }
         #hidden::-webkit-scrollbar{
             display: none;
@@ -134,231 +140,293 @@
     <div class="inner">
         <p>Ask Any Documents</p>
     </div>
-    <div id="hidden">
-        <button id="ease-1">Get Aadhar Card
-            <button id="send">
-                <span class="material-symbols-outlined">
-                send
-                </span>
-            </button>
-        </button>
-        <button id="ease-2">Get Pan Card
-            <button id="send">
-                <span class="material-symbols-outlined" >
-                send
-                </span>
-            </button> 
-        </button>
-    </div>
+    <div id="hidden"></div>
     <div class="prompt">
-        <input type="text" id="in" placeholder="Request any documents">
+        <input type="text" id="in" placeholder="Request any documents" >
             <button id="request" disabled type="submit">
                 <span class="material-symbols-outlined" >
             send
                 </span>
             </button>
-    </div>
+        </div>
+
     <div class="txt">
         <p>Use correct spellings to recieve requested prompt.</p>
     </div>
-
 <script>
-function content(){
-    let input = document.getElementById('in');
-    let tupni = input.value;
-    let es = document.getElementById('ease-1');
-    let es1 = document.getElementById('ease-2');
-    let b = document.getElementById('send')
-    es.style.display = 'none';
-    b.style.display = 'none';
-    es1.style.display = 'none';
-    input.value = '';
-    if(tupni === 'ew'){
-        location.href = 'https://shubhangsethi.github.io/GVP_zvx-awh_fzh4dch-Techie-Titans/';
-    }
-        if(tupni === 'msritpp'){
-            location.href = 'https://msritpp.github.io/msrit.pp/';
-        }
-            if(tupni === 'wheel'){
-                let three = document.createElement('img');
-                let share = document.createElement("a");
-                let logo = document.createElement('p');
-                let colon = document.createElement('p');
-                share.href = 'google.com';
-                share.innerText = 'share';
-                share.id = 's-btn';
-                share.style.textDecoration = 'none';
-                share.style.display = 'flex';
-                share.style.alignItems = 'center';
-                share.style.justifyContent = 'center';
-                share.style.backgroundColor = '#282e47';
-                share.style.width = '200px';
-                share.style.height = '50px';
-                share.style.color = '#8EBBFF';
-                share.style.maxWidth = '200px';
-                share.style.margin = 'auto';
-                share.style.fontFamily = 'Audiowide, sans-serif';
-                share.style.borderRadius = '10px';
-                three.src = 'wheel3.jpg';
-                three.style.width = '200px';
-                three.style.height = '200px';
-                three.style.display = 'flex';
-                three.style.justifyContent = 'center';
-                three.style.alignItems = 'center';
-                three.style.marginLeft = '77px';
-                three.style.paddingTop = '40px';
-                three.style.paddingBottom = '40px';
-                logo.className = 'lg';
-                logo.innerText = 'DS';
-                logo.style.color = '#8EBBFF';
-                logo.style.backgroundColor = '#282e47';
-                logo.style.fontFamily = 'Audiowide, sans-serif';
-                logo.style.width = '50px';
-                logo.style.height = '50px';
-                logo.style.display = 'flex';
-                logo.style.justifyContent = 'center';
-                logo.style.alignItems = 'center';
-                logo.style.borderRadius = '50%';
-                logo.style.marginTop = '-292px';
-                colon.innerText = ':';
-                colon.style.color = '#8EBBFF';
-                colon.style.marginLeft = '59px';
-                colon.style.marginTop = '-38px';
-                colon.style.fontSize = '25px';
-                document.getElementById('hidden').appendChild(three);
-                document.getElementById('hidden').appendChild(share);
-                document.getElementById('hidden').appendChild(logo);
-                document.getElementById('hidden').appendChild(colon);
-                
+     document.getElementById('in').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                display();
             }
-                if(tupni === 'home'){
-                    let three = document.createElement('img');
-                    let share = document.createElement("a");
-                    let logo = document.createElement('p');
+        });
+        function display(){
+            let userInput = document.getElementById('in');
+            let userData = userInput.value;
+            userInput.value = '';
+            if(userData === 'wheel' || userData === 'wl' || userData === 'WL' || userData === 'Wl' || userData === 'wL' || userData === 'Wheel'){
+                let user = document.createElement('p');
+                let image = document.createElement('img');
+                let bot = document.createElement('p');
+                let colon = document.createElement('p');
+                let Msg = document.createElement('p');
+                let colon2 = document.createElement('p');
+                let utterance = new SpeechSynthesisUtterance('Entered prompt' + userData);
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+                //User//
+                user.className = 'user';
+                user.innerText = 'You';
+                user.style.display = 'flex';
+                user.style.justifyContent = 'center';
+                user.style.alignItems = 'center';
+                user.style.fontSize = '10px';
+                user.style.color = '#8EBBFF';
+                user.style.width = '35px';
+                user.style.height = '35px';
+                user.style.borderRadius = '50%';
+                user.style.backgroundColor = '#282e47';
+                user.style.fontFamily = 'Audiowide, sans-serif';
+                user.style.position = 'relative';
+                user.style.top = '20px';
+                Msg.className = 'userMsg';
+                Msg.innerText = userData;
+                Msg.style.fontFamily = 'Audiowide, sans-serif';
+                Msg.style.color = '#8EBBFF';
+                Msg.style.top = '-263px';
+                Msg.style.position = 'relative';
+                Msg.style.marginLeft = '60px';
+                //--MsgEnd--//
+                //--UserEnd--//
+                //Colon//
+                colon.className = 'colon';
+                colon.innerText = ':';
+                colon.style.fontSize = '20px';
+                colon.style.color = '#8EBBFF';
+                colon.style.marginLeft = '40px';
+                colon.style.marginTop = '-28px';
+                colon.style.position = 'relative';
+                colon.style.top = '-242px';
+                colon2.className = 'colon';
+                colon2.innerText = ':';
+                colon2.style.fontSize = '20px';
+                colon2.style.color = '#8EBBFF';
+                colon2.style.marginLeft = '38px';
+                colon2.style.marginTop = '-28px';
+                colon2.style.position = 'relative';
+                colon2.style.top = '-210px';
+                //--ColonEnd--//
+                //--Bot--//
+                bot.className = 'bot';
+                bot.innerText = 'DS';
+                bot.style.fontSize = '10px';
+                bot.style.color = '#8EBBFF';
+                bot.style.width = '35px';
+                bot.style.height = '35px';
+                bot.style.borderRadius = '50%';
+                bot.style.backgroundColor = '#282e47';
+                bot.style.fontFamily = 'Audiowide, sans-serif';
+                bot.style.display = 'flex';
+                bot.style.justifyContent = 'center';
+                bot.style.alignItems = 'center';
+                bot.style.position = 'relative';
+                bot.style.top = '32px';
+                image.src = 'wheel3.jpg';
+                image.style.width = '200px';
+                image.style.height = '200px';
+                image.style.marginLeft = '50px';
+                image.style.paddingBottom  = '20px';
+                //--BotEnd--//
+                //document.getElementById('hidden').appendChild(image);
+                document.getElementById('hidden').appendChild(user);
+                document.getElementById('hidden').appendChild(bot);
+                document.getElementById('hidden').appendChild(image);
+                document.getElementById('hidden').appendChild(colon);
+                document.getElementById('hidden').appendChild(Msg);
+                document.getElementById('hidden').appendChild(colon2);
+            }
+                else if(userData === 'home'){
+                    let utterance = new SpeechSynthesisUtterance('Entered prompt' + userData);
+                    utterance.rate = 0.8;
+                    speechSynthesis.speak(utterance);
+                    let user = document.createElement('p');
+                    let image = document.createElement('img');
+                    let bot = document.createElement('p');
                     let colon = document.createElement('p');
-                    share.href = "whatsapp://send?text=home.gif";
-                    share.innerText = 'share';
-                    share.id = 's-btn';
-                    share.style.textDecoration = 'none';
-                    share.style.display = 'flex';
-                    share.style.alignItems = 'center';
-                    share.style.justifyContent = 'center';
-                    share.style.backgroundColor = '#282e47';
-                    share.style.width = '200px';
-                    share.style.height = '50px';
-                    share.style.color = '#8EBBFF';
-                    share.style.maxWidth = '200px';
-                    share.style.margin = 'auto';
-                    share.style.fontFamily = 'Audiowide, sans-serif';
-                    share.style.borderRadius = '10px';
-                    three.src = 'home.gif';
-                    three.style.width = '200px';
-                    three.style.height = '200px';
-                    three.style.display = 'flex';
-                    three.style.justifyContent = 'center';
-                    three.style.alignItems = 'center';
-                    three.style.marginLeft = '77px';
-                    three.style.paddingTop = '40px';
-                    three.style.paddingBottom = '40px';
-                    three.style.marginTop = '260px';
-                    logo.className = 'lg';
-                    logo.innerText = 'DS';
-                    logo.style.color = '#8EBBFF';
-                    logo.style.backgroundColor = '#282e47';
-                    logo.style.fontFamily = 'Audiowide, sans-serif';
-                    logo.style.width = '50px';
-                    logo.style.height = '50px';
-                    logo.style.display = 'flex';
-                    logo.style.justifyContent = 'center';
-                    logo.style.alignItems = 'center';
-                    logo.style.borderRadius = '50%';
-                    logo.style.marginTop = '-292px';
+                    let Msg = document.createElement('p');
+                    let colon2 = document.createElement('p');
+                    let Msg2 = document.createElement('p');
+                    //User//
+                    user.className = 'user';
+                    user.innerText = 'You';
+                    user.style.display = 'flex';
+                    user.style.justifyContent = 'center';
+                    user.style.alignItems = 'center';
+                    user.style.fontSize = '10px';
+                    user.style.color = '#8EBBFF';
+                    user.style.width = '35px';
+                    user.style.height = '35px';
+                    user.style.borderRadius = '50%';
+                    user.style.backgroundColor = '#282e47';
+                    user.style.fontFamily = 'Audiowide, sans-serif';
+                    user.style.position = 'relative';
+                    user.style.top = '20px';
+                    Msg.className = 'userMsg';
+                    Msg.innerText = userData;
+                    Msg.style.fontFamily = 'Audiowide, sans-serif';
+                    Msg.style.color = '#8EBBFF';
+                    Msg.style.top = '-263px';
+                    Msg.style.position = 'relative';
+                    Msg.style.marginLeft = '60px';
+                    //--MsgEnd--//
+                    //--UserEnd--//
+                    //Colon//
+                    colon.className = 'colon';
                     colon.innerText = ':';
+                    colon.style.fontSize = '20px';
                     colon.style.color = '#8EBBFF';
-                    colon.style.marginLeft = '59px';
-                    colon.style.marginTop = '-38px';
-                    colon.style.fontSize = '25px';
-                    document.getElementById('hidden').appendChild(three);
-                    document.getElementById('hidden').appendChild(share);
-                    document.getElementById('hidden').appendChild(logo);
+                    colon.style.marginLeft = '40px';
+                    colon.style.marginTop = '-28px';
+                    colon.style.position = 'relative';
+                    colon.style.top = '-242px';
+                    colon2.className = 'colon';
+                    colon2.innerText = ':';
+                    colon2.style.fontSize = '20px';
+                    colon2.style.color = '#8EBBFF';
+                    colon2.style.marginLeft = '38px';
+                    colon2.style.marginTop = '-28px';
+                    colon2.style.position = 'relative';
+                    colon2.style.top = '-210px';
+                    //--ColonEnd--//
+                    //--Bot--//
+                    bot.className = 'bot';
+                    bot.innerText = 'DS';
+                    bot.style.fontSize = '10px';
+                    bot.style.color = '#8EBBFF';
+                    bot.style.width = '35px';
+                    bot.style.height = '35px';
+                    bot.style.borderRadius = '50%';
+                    bot.style.backgroundColor = '#282e47';
+                    bot.style.fontFamily = 'Audiowide, sans-serif';
+                    bot.style.display = 'flex';
+                    bot.style.justifyContent = 'center';
+                    bot.style.alignItems = 'center';
+                    bot.style.position = 'relative';
+                    bot.style.top = '32px';
+                    image.src = 'home.gif';
+                    image.style.width = '200px';
+                    image.style.height = '200px';
+                    image.style.marginLeft = '50px';
+                    image.style.paddingBottom  = '20px';
+                    //--BotEnd--//
+                    //document.getElementById('hidden').appendChild(image);
+                    document.getElementById('hidden').appendChild(user);
+                    document.getElementById('hidden').appendChild(bot);
+                    document.getElementById('hidden').appendChild(image);
                     document.getElementById('hidden').appendChild(colon);
+                    document.getElementById('hidden').appendChild(Msg);
+                    document.getElementById('hidden').appendChild(colon2);
+                    document.getElementById('hidden').appendChild(Msg2);
                 }
-}
-document.addEventListener('DOMContentLoaded',function(){
-    document.querySelector('#request').onclick = content;
-});
-document.addEventListener('DOMContentLoaded',function(){
-    document.getElementById('request').disabled = true;
-    document.querySelector('#in').onkeyup = () => {
-        document.querySelector('#request').disabled = false;
-    }
-})
-/*document.addEventListener("contextmenu", function(e){
-  e.preventDefault();
-})*/
-
-function display(){
-    let one = document.getElementById('ease-2');
-    let two = document.getElementById('send');
-    let three = document.createElement('img');
-    let share = document.createElement("a");
-    let logo = document.createElement('p');
-    let es = document.getElementById('ease-1');
-    let b = document.getElementById('send')
-    let colon = document.createElement('p');
-    three.src = 'wheel3.jpg';
-    three.style.width = '200px';
-    three.style.height = '200px';
-    three.style.display = 'flex';
-    three.style.justifyContent = 'center';
-    three.style.alignItems = 'center';
-    three.style.marginLeft = '77px';
-    three.style.paddingBottom = '40px';
-    share.innerText = 'share';
-    share.id = 's-btn';
-    share.href = "whatsapp://send?text=home.gif";
-    share.style.textDecoration = 'none';
-    share.style.display = 'flex';
-    share.style.alignItems = 'center';
-    share.style.justifyContent = 'center';
-    share.style.backgroundColor = '#282e47';
-    share.style.width = '200px';
-    share.style.height = '50px';
-    share.style.color = '#8EBBFF';
-    share.style.maxWidth = '200px';
-    share.style.margin = 'auto';
-    share.style.fontFamily = 'Audiowide, sans-serif';
-    share.style.borderRadius = '10px';
-    es.style.display = 'none';
-    b.style.display = 'none';
-    logo.className = 'lg';
-    logo.innerText = 'DS';
-    logo.style.color = '#8EBBFF';
-    logo.style.backgroundColor = '#282e47';
-    logo.style.fontFamily = 'Audiowide, sans-serif';
-    logo.style.width = '50px';
-    logo.style.height = '50px';
-    logo.style.display = 'flex';
-    logo.style.justifyContent = 'center';
-    logo.style.alignItems = 'center';
-    logo.style.borderRadius = '50%';
-    logo.style.marginTop = '-292px';
-    colon.innerText = ':';
-    colon.style.color = '#8EBBFF';
-    colon.style.marginLeft = '59px';
-    colon.style.marginTop = '-38px';
-    colon.style.fontSize = '25px';
-    document.getElementById('hidden').appendChild(three);
-    document.getElementById('hidden').appendChild(share);
-    document.getElementById('hidden').appendChild(logo);
-    document.getElementById('hidden').appendChild(colon);
-    one.style.display = 'none';
-    two.style.display = 'none';
-}
-document.addEventListener("DOMContentLoaded",function(){
-    document.querySelector('#ease-2').onclick = display;
-})
-
+            else{
+                let user = document.createElement('p');
+                let bot = document.createElement('p');
+                let colon = document.createElement('p');
+                let Msg = document.createElement('p');
+                let colon2 = document.createElement('p');
+                let Msg2 = document.createElement('p');
+                //UserMsg//
+                Msg.className = 'userMsg';
+                Msg.innerText = userData;
+                Msg.style.fontFamily = 'Audiowide, sans-serif';
+                Msg.style.color = '#8EBBFF';
+                Msg.style.marginTop = '-65px';
+                Msg.style.marginLeft = '80px';
+                Msg2.className = 'msg';
+                Msg2.innerText = 'Either spelling is incorrect or requested prompt is unable to recieve from database.Try different prompt.';
+                Msg2.style.fontFamily = 'Audiowide, sans-serif';
+                Msg2.style.color = '#8EBBFF';
+                Msg2.style.marginTop = '55px';
+                Msg2.style.marginLeft = '80px';
+                
+                //--UserMsgEnd--//
+                //Colon//
+                colon.className = 'colon';
+                colon.innerText = ':';
+                colon.style.fontSize = '25px';
+                colon.style.color = '#8EBBFF';
+                colon.style.marginLeft = '60px';
+                colon.style.marginTop = '-28px';
+                colon.style.position = 'relative';
+                colon.style.top = '-42px';
+                colon2.className = 'colon';
+                colon2.innerText = ':';
+                colon2.style.fontSize = '25px';
+                colon2.style.color = '#8EBBFF';
+                colon2.style.marginLeft = '60px';
+                colon2.style.marginTop = '-28px';
+                colon2.style.position = 'relative';
+                colon2.style.top = '77px';
+                //--ColonEnd--//
+                //User//
+                user.className = 'user';
+                user.innerText = 'You';
+                user.style.display = 'flex';
+                user.style.justifyContent = 'center';
+                user.style.alignItems = 'center';
+                user.style.fontSize = '20px';
+                user.style.color = '#8EBBFF';
+                user.style.width = '50px';
+                user.style.height = '50px';
+                user.style.borderRadius = '50%';
+                user.style.backgroundColor = '#282e47';
+                user.style.fontFamily = 'Audiowide, sans-serif';
+                user.style.position = 'relative';
+                user.style.top = '60px';
+                //--UserEnd--//
+                //--Bot--//
+                bot.className = 'bot';
+                bot.innerText = 'DS';
+                bot.style.display = 'flex';
+                bot.style.justifyContent = 'center';
+                bot.style.alignItems = 'center';
+                bot.style.fontSize = '20px';
+                bot.style.color = '#8EBBFF';
+                bot.style.width = '50px';
+                bot.style.height = '50px';
+                bot.style.borderRadius = '50%';
+                bot.style.backgroundColor = '#282e47';
+                bot.style.fontFamily = 'Audiowide, sans-serif';
+                bot.style.position = 'relative';
+                bot.style.top = '85px';
+                bot.style.marginBottom = '40px';
+                
+                    let utterance = new SpeechSynthesisUtterance('Entered prompt' + userData);
+                    utterance.rate = 0.8;
+                    window.speechSynthesis.speak(utterance);
+                    setTimeout(function(){
+                        let utterance = new SpeechSynthesisUtterance('Either spelling is incorrect or requested prompt is unable to recieve from database.Try different prompt.');
+                        utterance.rate = 0.8;
+                        speechSynthesis.speak(utterance);
+                    },500);
+                
+                //--BotEnd--//
+                document.getElementById('hidden').appendChild(user);
+                document.getElementById('hidden').appendChild(bot);
+                document.getElementById('hidden').appendChild(colon);
+                document.getElementById('hidden').appendChild(Msg);
+                document.getElementById('hidden').appendChild(colon2);
+                document.getElementById('hidden').appendChild(Msg2);
+            }
+        }
+        document.addEventListener("DOMContentLoaded",function(){
+            document.querySelector('#request').onclick = display;
+        })
+        document.addEventListener('DOMContentLoaded',function(){
+            document.getElementById('request').disabled = true;
+               document.querySelector('#in').onkeyup = () => {
+                 document.querySelector('#request').disabled = false;
+            }
+        })
 </script>
 </body>
 </html>
