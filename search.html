@@ -170,6 +170,7 @@
                 let colon = document.createElement('p');
                 let Msg = document.createElement('p');
                 let colon2 = document.createElement('p');
+                let share = document.createElement('a');
                 let utterance = new SpeechSynthesisUtterance('Entered prompt' + userData);
                 utterance.rate = 0.8;
                 speechSynthesis.speak(utterance);
@@ -236,6 +237,24 @@
                 image.style.marginLeft = '50px';
                 image.style.paddingBottom  = '20px';
                 //--BotEnd--//
+                //Share//
+                share.href = 'whatsapp://send?text=wheel3.jpg';
+                share.innerText = 'Share';
+                share.style.color = '#8EBBFF';
+                share.style.textDecoration = 'none';
+                share.style.fontSize = '13px';
+                share.style.fontFamily = 'Audiowide, sans-serif';
+                share.style.backgroundColor = '#282e47';
+                share.style.display = 'flex';
+                share.style.justifyContent = 'center';
+                share.style.alignItems = 'center';
+                share.style.width = '90px';
+                share.style.height = '40px';
+                share.style.maxWidth = '90px';
+                share.style.margin = 'auto';
+                share.style.borderRadius = '50px';
+                share.style.marginBottom = '20px';
+                //--ShareEnd--//
                 //document.getElementById('hidden').appendChild(image);
                 document.getElementById('hidden').appendChild(user);
                 document.getElementById('hidden').appendChild(bot);
@@ -243,6 +262,7 @@
                 document.getElementById('hidden').appendChild(colon);
                 document.getElementById('hidden').appendChild(Msg);
                 document.getElementById('hidden').appendChild(colon2);
+                document.getElementById('hidden').appendChild(share);
             }
                 else if(userData === 'home'){
                     let utterance = new SpeechSynthesisUtterance('Entered prompt' + userData);
@@ -255,6 +275,7 @@
                     let Msg = document.createElement('p');
                     let colon2 = document.createElement('p');
                     let Msg2 = document.createElement('p');
+                    let share = document.createElement('a');
                     //User//
                     user.className = 'user';
                     user.innerText = 'You';
@@ -318,6 +339,24 @@
                     image.style.marginLeft = '50px';
                     image.style.paddingBottom  = '20px';
                     //--BotEnd--//
+                    //Share//
+                    share.href = 'whatsapp://send?text=home.gif';
+                    share.innerText = 'Share';
+                    share.style.color = '#8EBBFF';
+                    share.style.textDecoration = 'none';
+                    share.style.fontSize = '13px';
+                    share.style.fontFamily = 'Audiowide, sans-serif';
+                    share.style.backgroundColor = '#282e47';
+                    share.style.display = 'flex';
+                    share.style.justifyContent = 'center';
+                    share.style.alignItems = 'center';
+                    share.style.width = '90px';
+                    share.style.height = '40px';
+                    share.style.maxWidth = '90px';
+                    share.style.margin = 'auto';
+                    share.style.borderRadius = '50px';
+                    share.style.marginBottom = '20px';
+                    //--ShareEnd--//
                     //document.getElementById('hidden').appendChild(image);
                     document.getElementById('hidden').appendChild(user);
                     document.getElementById('hidden').appendChild(bot);
@@ -326,6 +365,7 @@
                     document.getElementById('hidden').appendChild(Msg);
                     document.getElementById('hidden').appendChild(colon2);
                     document.getElementById('hidden').appendChild(Msg2);
+                    document.getElementById('hidden').appendChild(share);
                 }
             else{
                 let user = document.createElement('p');
