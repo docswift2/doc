@@ -1,146 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DocSwift</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        .header{
-            background-color: #282e47;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80px;
-        }
-        .header a{
-            text-decoration: none;
-            font-family: "Audiowide", sans-serif;
-            color: #8EBBFF;
-            font-size: 30px;
-        }
-        .footer{
-            background-color: #282e47;
-            font-family: "Audiowide", sans-serif;
-            color: #8EBBFF;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80px;
-            font-size: 20px;
-            margin-top: -155px;
-            
-        }
-        .footer a{
-            text-decoration: none;
-            font-family: "Audiowide", sans-serif;
-            color: #8EBBFF;
-            font-size: 20px;
-            margin: 10px;
-        }
-        .bg{
-            background-color: #2F3651;
-            height: 650px;
-        }
-        .txt{
-            font-size: 34px;
-            font-family: "Audiowide", sans-serif;
-            min-width: 280px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            top: -400px;
-            color: #8EBBFF;
-        }
-        .txt span{
-            position: relative;
-        }
-        .txt span::before{
-            content: "";
-            color: #8EBBFF;
-            animation: txt 20s infinite;
-        }
-        .txt span::after{
-            content: '';
-            position: absolute;
-            width: calc(100% + 8px);
-            width: 10px;
-            height: 100%;
-            background-color: #2F3651;
-            border-left: 2px solid #8EBBFF;
-            right: -8px;
-            animation: cur .8s infinite,typing 20s steps(18) infinite;
-        }
-        @keyframes cur{
-            to{
-                border-left: 2px solid #8EBBFF;
-            }
-        }
-        @keyframes txt {
-            0%,20%{
-                content: "Aadhar Card";
-            }
-            21%,40%{
-                content: "Pan Card";
-            }
-            41%,60%{
-                content: "Driving License";
-            }
-            61%,80%{
-                content: "Income Certificate";
-            }
-            81%,100%{
-                content: "Bank Passbook";
-            }
-        }
-        @keyframes typing {
-            10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
-                width: 0;
-            }
-            5%,20%,25%,40%,45%,60%,65%,80%,85%{
-                width: calc(100% + 8px);
-            }
-        }
-        .start{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        button{
-            padding: 12px 70px;
-            margin-top: 20px;
-            font-family: "Audiowide", sans-serif;
-            background-color: #3C46FF;
-            border: none;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 15px;
-        }
-    </style>
+	<title>
+		How to use web share API for native 
+		share options in HTML and JavaScript?
+	</title>
 </head>
-<body>
-    <div class="header"><a href="index.html">DocSwift</a></div>
-    <div class="bg"></div>
-    <div class="txt">
-        Prompt <span></span>
-        <button type="submit">Start</button>
-    </div>
-    <div class="footer">Copyright © <a href="index.html">DocSwift</a></div>
-    <script>
-        console.log("DEVELOPED BY PAVAN REDDY");
-        function click(){
-            location.href = 'https://docswift2.000webhostapp.com/login.php';
-        }
-        document.addEventListener("DOMContentLoaded",function(){
-            document.querySelector('button').onclick = click;
-        })
-    </script>
+
+<body style="text-align: center;">
+	<h1 style="color: green;">GeeksforGeeks</h1>
+
+	<h2>Web Share API Demonstration</h2>
+
+	<button id="shareBtn">Share</button>
+
+	<script>
+		document.querySelector('#shareBtn')
+		.addEventListener('click', event => {
+
+			// Fallback, Tries to use API only
+			// if navigator.share function is
+			// available
+			if (navigator.share) {
+				navigator.share({
+
+					// Title that occurs over
+					// web share dialog
+					title: 'GeeksForGeeks',
+
+					// URL to share
+					url: 'https://geeksforgeeks.org'
+				}).then(() => {
+					console.log('Thanks for sharing!');
+				}).catch(err => {
+
+					// Handle errors, if occurred
+					console.log(
+					"Error while using Web share API:");
+					console.log(err);
+				});
+			} else {
+
+				// Alerts user if API not available 
+				alert("Browser doesn't support this API !");
+			}
+		})
+	</script>
 </body>
+
 </html>
