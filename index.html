@@ -8,45 +8,51 @@
 	</title>
 </head>
 
-<body style="text-align: center;">
-	<h1 style="color: green;">GeeksforGeeks</h1>
-
-	<h2>Web Share API Demonstration</h2>
-
-	<button id="shareBtn">Share</button>
+<body>
+	<div>
+  <label for="files">Select images to share:</label>
+  <input id="files" type="file" accept="image/*" multiple />
+</div>
+<button id="share" type="button">Share your images!</button>
+<output id="output"></output>
 
 	<script>
-		document.querySelector('#shareBtn')
-		.addEventListener('click', event => {
+          const input = document.getElementById("files");
+const output = document.getElementById("output");
 
-			// Fallback, Tries to use API only
-			// if navigator.share function is
-			// available
-			if (navigator.share) {
-				navigator.share({
+document.getElementById("share").addEventListener("click", async () => {
+  const files = input.files;
 
-					// Title that occurs over
-					// web share dialog
-					title: 'GeeksForGeeks',
+  if (files.length === 0) {
+    output.textContent = "No files selected.";
+    return;
+  }
 
-					// URL to share
-					url: 'https://drive.google.com/file/d/1VAmtnVrytQFlTmnQq2hjtbZihEPrKcnm/view?usp=drivesdk'
-				}).then(() => {
-					console.log('Thanks for sharing!');
-				}).catch(err => {
+  // feature detecting navigator.canShare() also implies
+  // the same for the navigator.share()
+  if (!navigator.canShare) {
+    output.textContent = `Your browser doesn't support the Web Share API.`;
+    return;
+  }
 
-					// Handle errors, if occurred
-					console.log(
-					"Error while using Web share API:");
-					console.log(err);
-				});
-			} else {
+  if (navigator.canShare({ files })) {
+    try {
+      await navigator.share({
+        files,
+        title: "Images",
+        text: "Beautiful images",
+      });
+      output.textContent = "Shared!";
+    } catch (error) {
+      output.textContent = `Error: ${error.message}`;
+    }
+  } else {
+    output.textContent = `Your system doesn't support sharing these files.`;
+  }
+});
 
-				// Alerts user if API not available 
-				alert("Browser doesn't support this API !");
-			}
-		})
 	</script>
 </body>
 
 </html>
+
