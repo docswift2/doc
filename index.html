@@ -1,54 +1,40 @@
 <!DOCTYPE html>
-<html>
- 
+<html lang="en">
 <head>
-    <title>
-        How to use web share API for native 
-        share options in HTML and JavaScript?
-    </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Share API Example</title>
 </head>
- 
-<body style="text-align: center;">
-    <h1 style="color: green;">GeeksforGeeks</h1>
- 
-    <h2>Web Share API Demonstration</h2>
-    <img src="wheel3.jpg" width="200px" height="200px">
-    <button id="shareBtn">Share</button>
- 
-    <script>
-        document.querySelector('#shareBtn')
-        .addEventListener('click', event => {
-         let image = document.querySelector("img").src;
-         
- 
-            // Fallback, Tries to use API only
-            // if navigator.share function is
-            // available
-            if (navigator.share) {
-                navigator.share({
- 
-                    // Title that occurs over
-                    // web share dialog
-                    title: 'GeeksForGeeks',
- 
-                    // URL to share
-                    image,
-                }).then(() => {
-                    console.log('Thanks for sharing!');
-                }).catch(err => {
- 
-                    // Handle errors, if occurred
-                    console.log(
-                    "Error while using Web share API:");
-                    console.log(err);
-                });
-            } else {
- 
-                // Alerts user if API not available 
-                alert("Browser doesn't support this API !");
-            }
-        })
-    </script>
+<body>
+
+  <h1>Web Share API Example</h1>
+  
+  <button id="shareBtn">Share Content</button>
+
+  <script>
+    // Check if the Web Share API is supported
+    if (navigator.share) {
+      // Get the share button element
+      const shareBtn = document.getElementById('shareBtn');
+
+      // Attach a click event listener to the button
+      shareBtn.addEventListener('click', async () => {
+        try {
+          // Use the share method of the Web Share API
+          await navigator.share({
+            title: 'Web Share API Example',
+            text: 'Check out this example of using the Web Share API!',
+            url: 'https://example.com'
+          });
+          console.log('Successfully shared');
+        } catch (error) {
+          console.error('Error sharing:', error);
+        }
+      });
+    } else {
+      console.log('Web Share API not supported');
+    }
+  </script>
+
 </body>
- 
 </html>
