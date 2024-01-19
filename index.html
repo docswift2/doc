@@ -10,13 +10,15 @@
 
 <body>
 <button id="share" type="button">Share your images!</button>
+	<img src="wheel3.jpg" width="100px" height="100px">
 <output id="output"></output>
 
 	<script>
 const output = document.getElementById("output");
 
 document.getElementById("share").addEventListener("click", async () => {
-  const files = url("wheel3.jpg");
+  const files = image.src;
+  let image = document.querySelector("img");
 
   
 
