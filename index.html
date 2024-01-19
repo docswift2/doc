@@ -9,7 +9,7 @@
 
   <h1>Web Share API Example</h1>
   
-  <button id="shareBtn">Share Content</button>
+  <button id="shareBtn">Share Image</button>
 
   <script>
     // Check if the Web Share API is supported
@@ -20,12 +20,17 @@
       // Attach a click event listener to the button
       shareBtn.addEventListener('click', async () => {
         try {
-          // Use the share method of the Web Share API
+          // Fetch the image as a Blob
+          const response = await fetch('wheel3.jpg');
+          const blob = await response.blob();
+
+          // Use the share method of the Web Share API with the image
           await navigator.share({
+            files: [new File([blob], 'image.jpg', { type: 'image/jpeg' })],
             title: 'Web Share API Example',
-            text: 'Check out this example of using the Web Share API!',
-            url: 'https://example.com'
+            text: 'Check out this example of sharing an image with the Web Share API!'
           });
+
           console.log('Successfully shared');
         } catch (error) {
           console.error('Error sharing:', error);
@@ -38,3 +43,4 @@
 
 </body>
 </html>
+
