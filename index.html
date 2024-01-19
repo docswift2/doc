@@ -9,19 +9,14 @@
 </head>
 
 <body>
-	<div>
-  <label for="files">Select images to share:</label>
-  <input id="files" type="file" accept="image/*" multiple />
-</div>
 <button id="share" type="button">Share your images!</button>
 <output id="output"></output>
 
 	<script>
-          const input = document.getElementById("files");
 const output = document.getElementById("output");
 
 document.getElementById("share").addEventListener("click", async () => {
-  const files = input.files;
+  const files = "wheel3.jpg;
 
   if (files.length === 0) {
     output.textContent = "No files selected.";
