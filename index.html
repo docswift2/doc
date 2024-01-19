@@ -12,12 +12,14 @@
     <h1 style="color: green;">GeeksforGeeks</h1>
  
     <h2>Web Share API Demonstration</h2>
- 
+    <img src="wheel3.jpg" width="200px" height="200px">
     <button id="shareBtn">Share</button>
  
     <script>
         document.querySelector('#shareBtn')
         .addEventListener('click', event => {
+         let image = document.querySelector("img").src;
+         
  
             // Fallback, Tries to use API only
             // if navigator.share function is
@@ -30,7 +32,7 @@
                     title: 'GeeksForGeeks',
  
                     // URL to share
-                    url: 'https://geeksforgeeks.org'
+                    url:image,
                 }).then(() => {
                     console.log('Thanks for sharing!');
                 }).catch(err => {
